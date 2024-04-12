@@ -13,7 +13,7 @@ contract NftToken is ERC721, ERC721URIStorage {
     constructor( string memory _name, string memory _symbol, string memory _uri)
         ERC721(_name, _symbol)
     {
-        owner = msg.sender;
+        owner = tx.origin;
         safeMint(tx.origin, _uri);
     }
 
