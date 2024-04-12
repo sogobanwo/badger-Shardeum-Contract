@@ -1,19 +1,25 @@
 // SPDX-License-Identifier: MIT
-// Compatible with OpenZeppelin Contracts ^5.0.0
-pragma solidity ^0.8.20;
+// Compatible with OpenZeppelin Contracts ^4.0.0
+pragma solidity 0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract NftToken is ERC721, ERC721URIStorage, Ownable {
+contract NftToken is ERC721, ERC721URIStorage {
     uint128 increamentingTokenId;
+    address owner;
 
     constructor( string memory _name, string memory _symbol, string memory _uri)
         ERC721(_name, _symbol)
-        Ownable(msg.sender)
     {
-        safeMint(msg.sender, _uri);
+        owner = msg.sender;
+        safeMint(tx.origin, _uri);
+    }
+
+    modifier onlyOwner (){
+        require(msg.sender == owner, "Not Contract Owner");
+        _;
     }
 
     function safeMint(address to, string memory uri)
