@@ -4,6 +4,7 @@ pragma solidity 0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract NonFungibleToken is ERC721, ERC721URIStorage {
     uint128 increamentingTokenId;
@@ -12,12 +13,12 @@ contract NonFungibleToken is ERC721, ERC721URIStorage {
     constructor( string memory _name, string memory _symbol, string memory _uri)
         ERC721(_name, _symbol)
     {
-        owner = tx.origin;
+        owner = msg.sender;
         safeMint(tx.origin, _uri);
     }
 
     modifier onlyOwner (){
-        require(msg.sender == owner, "Not Contract Owner");
+        require(msg.sender == owner);
         _;
     }
 
@@ -48,3 +49,6 @@ contract NonFungibleToken is ERC721, ERC721URIStorage {
         return super.supportsInterface(interfaceId);
     }
 }
+
+
+
