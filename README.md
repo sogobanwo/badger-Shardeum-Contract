@@ -1,39 +1,60 @@
-# <h1 align="center"> Forge Template </h1>
+# <h1 align="center"> Badger Contract </h1>
 
-**Template repository for getting started quickly with Foundry projects**
+![Badger Home Page](./banner.png)
 
-![Github Actions](https://github.com/foundry-rs/forge-template/workflows/CI/badge.svg)
+## Overview
 
-## Getting Started
+Welcome to **Badger**, the no-code platform designed to simplify the deployment and interaction with smart contracts on the Shardeum blockchain. Our intuitive interface and powerful backend ensure that you can focus on what truly matters - bringing your blockchain ideas to life.
 
-Click "Use this template" on [GitHub](https://github.com/foundry-rs/forge-template) to create a new repository with this repo as the initial state.
+## Features
 
-Or, if your repo already exists, run:
-```sh
-forge init
-forge build
-forge test
+- **Token Creation**: Users can create FTs and NFTs by interacting with a user-friendly interface.
+- **EVM Compatibility**: Fully compatible with any EVM-based blockchain.
+- **EIP Standard**: Tokens follows the Ethereum Standard.
+- **Interactivity**: Interact with deployed contracts with ease, thanks to our built-in tools.
+
+## Tools
+
+- [**_NextJs_**](https://nextjs.org/)
+- [**_Foundry_**](https://book.getfoundry.sh/)
+- [**_TypeScript_**](https://www.typescriptlang.org/)
+- [**_Solidity_**](https://soliditylang.org/)
+
+## How It Works
+
+1. **User Authentication**: Users use their wallet to connect to the platform.
+2. **Get Faucet Tokens**: For the sake of the demo you can get the Shadeum token(SHM) from this [faucet](https://chaindrop.org/?chainid=8082&token=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee)
+3. **Token Configuration**: Users select the type of token they wish to create and configure its properties.
+4. **Deployment**: The tokens are deployed to the Shardeum blockchain.
+5. **Management**: Users can manage their tokens within the platform.
+
+## Installation
+
+Provide step-by-step instructions on how to get a development environment running.
+
+```bash
+git clone https://github.com/sogobanwo/badger-Shardeum-Contract
+cd badger
+npm install
+npm run dev
 ```
 
-## Writing your first test
+## Future plans
 
-All you need is to `import forge-std/Test.sol` and then inherit it from your test contract. Forge-std's Test contract comes with a pre-instatiated [cheatcodes environment](https://book.getfoundry.sh/cheatcodes/), the `vm`. It also has support for [ds-test](https://book.getfoundry.sh/reference/ds-test.html)-style logs and assertions. Finally, it supports Hardhat's [console.log](https://github.com/brockelmore/forge-std/blob/master/src/console.sol). The logging functionalities require `-vvvv`.
+As we move on from the hackathon we plan to add more functionalities like:
 
-```solidity
-pragma solidity 0.8.10;
+- The ability for users dynamically select what features their contract should involve e.g if they want their token burnable, ownable, mintable, e.t.c.
+- The ability for users to create `staking` contract, `governance` contract and more.
+- Badger Sdk for developers to create and build, deploy smart contract on polkadot using languages like JavaScript, TypeScript, and C#.
 
-import "forge-std/Test.sol";
+We believe that this tool will be great for onboarding more users to the shardeum network.
 
-contract ContractTest is Test {
-    function testExample() public {
-        vm.roll(100);
-        console.log(1);
-        emit log("hi");
-        assertTrue(true);
-    }
-}
-```
+## Frontend
 
-## Development
+You can find the Badger Frontend - [HERE](https://github.com/JeffreyJoel/badger-evm.git)
 
-This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for instructions on how to install and use Foundry.
+## Acknowledgments
+
+- Encode Team.
+
+Hacked By Team Badger
